@@ -1,0 +1,8 @@
+name: ToggleInventory-Revamped
+authors:
+  - MrIvanPlays
+
+main: com.mrivanplays.toggleinventory.ToggleInventory
+version: $version
+api-version: 1.13
+description: ToggleInventory revamped!

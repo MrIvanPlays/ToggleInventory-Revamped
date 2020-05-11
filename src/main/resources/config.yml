@@ -1,0 +1,7 @@
+# Maximum inventories allowed
+# Lower number is better performance.
+max-inventories: 50
+
+# Configurable plugin messages
+messages:
+  applied-inventory: "&8Applied inventory &f%inventory%"

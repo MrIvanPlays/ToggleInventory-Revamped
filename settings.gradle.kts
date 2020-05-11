@@ -1,0 +1,2 @@
+rootProject.name = "toggleinventory-revamped"
+

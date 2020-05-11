@@ -9,6 +9,6 @@ class PlayerQuitListener(private val plugin: ToggleInventory) : Listener {
 
     @EventHandler
     fun onEvent(event: PlayerQuitEvent) {
-        plugin.storage.setLastLoadedInventory(event.player)
+        plugin.storage.onQuit(event.player)
     }
 }

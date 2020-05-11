@@ -71,10 +71,12 @@ class YamlStorage(pluginFolder: Path) : Storage {
         }
     }
 
-    override fun setLastLoadedInventory(player: Player) {
+    override fun onQuit(player: Player) {
         val uniqueId = player.uniqueId
         val config = getPlayerConfig(uniqueId)
-        config.set("last-loaded-inventory", currentlyLoaded[uniqueId] ?: 1)
+        val currentlyLoadedInventory = currentlyLoaded[uniqueId] ?: 1
+        config.set("last-loaded-inventory", currentlyLoadedInventory)
+        config.set(currentlyLoadedInventory.toString(), serializeInventory(player.inventory))
         config.save(File(dataFolder.toFile(), "$uniqueId.yml"))
     }
 

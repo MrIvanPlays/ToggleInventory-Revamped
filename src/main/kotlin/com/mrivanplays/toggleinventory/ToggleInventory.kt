@@ -6,6 +6,7 @@ import com.mrivanplays.toggleinventory.listeners.PlayerJoinListener
 import com.mrivanplays.toggleinventory.listeners.PlayerQuitListener
 import com.mrivanplays.toggleinventory.storage.Storage
 import com.mrivanplays.toggleinventory.storage.YamlStorage
+import com.mrivanplays.toggleinventory.util.VersionInfo
 import org.bukkit.ChatColor
 import org.bukkit.plugin.java.JavaPlugin
 
@@ -14,6 +15,7 @@ class ToggleInventory : JavaPlugin() {
     lateinit var config: Configuration
     lateinit var storage: Storage
     lateinit var commandManager: PaperCommandManager
+    lateinit var versionInfo: VersionInfo
 
     override fun onEnable() {
         config = Configuration(dataFolder)
@@ -22,6 +24,8 @@ class ToggleInventory : JavaPlugin() {
 
         commandManager = PaperCommandManager(this)
         commandManager.registerCommand(ToggleInventoryCommand(this))
+
+        versionInfo = VersionInfo(javaClass.`package`.implementationVersion)
 
         server.pluginManager.registerEvents(PlayerJoinListener(this), this)
         server.pluginManager.registerEvents(PlayerQuitListener(this), this)

@@ -8,6 +8,7 @@ import co.aikar.commands.annotation.Default
 import co.aikar.commands.annotation.Subcommand
 import com.mrivanplays.toggleinventory.ToggleInventory
 import com.mrivanplays.toggleinventory.util.TIUtils
+import com.mrivanplays.toggleinventory.util.VersionInfo
 import org.bukkit.ChatColor
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
@@ -47,5 +48,20 @@ class ToggleInventoryCommand(private val plugin: ToggleInventory) : BaseCommand(
     ) {
         plugin.config.reload()
         sender.sendMessage("§aConfiguration reloaded successfully")
+    }
+
+    @Subcommand("info")
+    @CommandPermission("toggleinventory.info")
+    fun info(
+        sender: CommandSender
+    ) {
+        val info: VersionInfo = plugin.versionInfo
+        sender.sendMessage("ToggleInventory-Revamped v" + info.version)
+        sender.sendMessage("Build: " + info.build)
+        sender.sendMessage("Git commit: " + info.commit)
+        if (info.version.contains("SNAPSHOT")) {
+            sender.sendMessage("Warning: you are running a dev build. You should report every bug to the issue tracker")
+        }
+
     }
 }

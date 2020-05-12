@@ -5,3 +5,5 @@ max-inventories: 50
 # Configurable plugin messages
 messages:
   applied-inventory: "&8Applied inventory &f%inventory%"
+  inventory-already-applied: "&cInventory already applied"
+  invalid-inventory: "&cError: you have specified invalid inventory. Inventories start from 1"

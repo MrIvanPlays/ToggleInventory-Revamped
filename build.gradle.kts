@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "com.mrivanplays"
-version = "1.0.0"
+version = "1.0.1-SNAPSHOT"
 
 repositories {
     mavenCentral()
@@ -49,7 +49,7 @@ tasks {
 }
 
 fun getBuildNumber(): String {
-    return System.getenv("BUILD_NUMBER") ?: System.getProperty("BUILD_NUMBER") ?: "DEV"
+    return System.getenv("BUILD_NUMBER") ?: System.getProperty("BUILD_NUMBER") ?: "CUSTOM BUILD"
 }
 
 fun getGitCommit(): String {
@@ -58,6 +58,6 @@ fun getGitCommit(): String {
         env.substring(0, 7)
     } else {
         val property = System.getProperty("GIT_COMMIT")
-        property?.substring(0, 7) ?: "DEV"
+        property?.substring(0, 7) ?: "CUSTOM BUILD"
     }
 }

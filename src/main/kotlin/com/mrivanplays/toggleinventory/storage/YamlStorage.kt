@@ -71,6 +71,11 @@ class YamlStorage(pluginFolder: Path) : Storage {
         }
     }
 
+    override fun isCurrentlyApplied(player: Player, inventory: Int): Boolean {
+        val loaded = currentlyLoaded[player.uniqueId] ?: 1
+        return loaded == inventory
+    }
+
     override fun onQuit(player: Player) {
         val uniqueId = player.uniqueId
         val config = getPlayerConfig(uniqueId)

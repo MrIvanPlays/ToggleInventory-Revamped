@@ -11,6 +11,8 @@ interface Storage {
 
     fun getLastLoadedInventory(player: Player): Int
 
+    fun isCurrentlyApplied(player: Player, inventory: Int): Boolean
+
     fun onQuit(player: Player)
 
     fun serializeInventory(

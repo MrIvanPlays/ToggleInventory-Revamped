@@ -15,4 +15,14 @@ object TIUtils {
         }
         return false
     }
+
+    fun getMaxFromPermission(sender: CommandSender, max: Int): Int {
+        val number = 0
+        for (x in number .. max) {
+            if (sender.hasPermission("toggleinventory.inventories.$x")) {
+                return x
+            }
+        }
+        return 0
+    }
 }
